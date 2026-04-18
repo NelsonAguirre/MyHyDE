@@ -78,7 +78,7 @@ S|${HOME}/.local/share|waybar|waybar
 
  Terminal 
 P|${HOME}/.config|lsd|lsd
-P|${HOME}/.config|fastfetch|fastfetch
+O|${HOME}/.config|fastfetch|fastfetch
 O|${HOME}/.local/share/fastfetch/presets|hyde|fastfetch
 
 S|${HOME}/.config/kitty|hyde.conf theme.conf|kitty
@@ -101,7 +101,7 @@ S|${HOME}/.config/zsh/functions|bat.zsh|zsh bat
 S|${HOME}/.config/zsh/completions|fzf.zsh|zsh fzf
 S|${HOME}/.config/zsh/completions|hydectl.zsh|zsh
 
-P|${HOME}/.config/zsh|.zshrc user.zsh prompt.zsh plugin.zsh|zsh
+O|${HOME}/.config/zsh|.zshrc user.zsh prompt.zsh plugin.zsh|zsh
 P|${HOME}/.config/zsh|.p10k.zsh|zsh zsh-theme-powerlevel10k
 
 
