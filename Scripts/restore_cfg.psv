@@ -150,3 +150,9 @@ P|${HOME}/.config/hypr|hypridle.conf|hypridle
 
  Bluelight filter daemon 
 P|${HOME}/.config/hypr|hyprsunset.conf|hyprsunset
+O|${HOME}/.config|opencode|opencode-bin
+O|${HOME}/.config|mpv|mpv
+O|${HOME}/.config|sioyek|sioyek
+O|${HOME}/.config|yt-dlp|yt-dlp
+O|${HOME}/.config|yt-lite|yt-lite
+O|${HOME}/.config|yt-x|yt-x
