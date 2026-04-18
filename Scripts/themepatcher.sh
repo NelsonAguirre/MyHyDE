@@ -132,9 +132,13 @@ else
 
     Git_Path=${Git_Repo#*://*/}
     Git_Owner=${Git_Path%/*}
+    Git_RepoName=${Git_Path##*/}
+
+    # Use Git_Path (owner/repo) for cache dir to avoid collisions
+    # when multiple repos share the same owner and branch name
     branch_dir=${branch//\//_}
     cacheDir=${cacheDir:-"$HOME/.cache/hyde"}
-    Theme_Dir="${cacheDir}/themepatcher/${branch_dir}-${Git_Owner}"
+    Theme_Dir="${cacheDir}/themepatcher/${branch_dir}-${Git_Owner}-${Git_RepoName}"
 
     if [ -d "$Theme_Dir" ]; then
         print_prompt "Directory $Theme_Dir already exists. Using existing directory."
