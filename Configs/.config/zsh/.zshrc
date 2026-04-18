@@ -37,7 +37,38 @@
 
 #  This is your file 
 # Add your configurations here
-# export EDITOR=nvim
-export EDITOR=code
+EDITOR=nvim
 
 # unset -f command_not_found_handler # Uncomment to prevent searching for commands not found in package manager
+
+# General alias
+alias ls="lsd"
+alias lsn="/bin/ls"
+alias cat="bat --style=plain"
+alias catn="/bin/cat"
+alias vim="nvim"
+alias icat="kitty +kitten icat"
+alias matrix="unimatrix -s 95"
+alias open="xdg-open"
+
+eval $(thefuck --alias)
+
+wsearch() {
+    # Reemplaza los espacios por '+' para que la URL sea válida
+    local query=$(echo "$*" | tr ' ' '+')
+    w3m "https://duckduckgo.com/html/?q=$query"
+}
+  
+# Variables
+
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
+
+# opencode
+export PATH=/home/nelson/.opencode/bin:$(go env GOPATH)/bin:$PATH
+
+export PKMPATH="/home/nelson/MyZettelkasten"
+alias inbox="ls '$PKMPATH/01-Inbox'"
+
+# Ignorar el signal SIGSEGV del proceso hijo (ERROR opencode+plugin mio)
+opencode() { command opencode "$@" 2>/dev/null || true; }
