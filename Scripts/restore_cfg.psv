@@ -155,3 +155,4 @@ O|${HOME}/.config|mpv|mpv
 O|${HOME}/.config|sioyek|sioyek
 O|${HOME}/.config|yt-dlp|yt-dlp
 O|${HOME}/.config|yt-x|yt-x
+P|${HOME}/.config/opencode/oc-neo-terminal|oc-neo-terminal|opencode-bin
