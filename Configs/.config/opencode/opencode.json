@@ -1,8 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "default_agent": "gentleman",
-  "plugin": [
-    "opencode-snippets",
-    "@ex-machina/opencode-anthropic-auth"
-  ]
+  "plugin": ["opencode-snippets", "@ex-machina/opencode-anthropic-auth"]
 }
+
