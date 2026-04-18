@@ -1,0 +1,11 @@
+- agentes-universidad
+- agentes-PKM
+- onyx-flow
+- oc-neo-terminal
+- hyde:
+  - Hyde-Red-Stone
+  - hyde-neo-rose
+  - HyDE-neo-amber
+  - Hyde-Crimson-Blade
+  - HyDE-Vanta-Black
+  - LimeFrenzy
