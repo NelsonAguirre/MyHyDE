@@ -105,10 +105,11 @@ O|${HOME}/.config/zsh|.zshrc user.zsh prompt.zsh plugin.zsh|zsh
 P|${HOME}/.config/zsh|.p10k.zsh|zsh zsh-theme-powerlevel10k
 
 
- Vim 
+ Vim/Neovim 
 P|${HOME}/.config/vim|vimrc|vim
 S|${HOME}/.config/vim/colors|wallbash.vim|vim
-S|${HOME}/.config/vim|hyde.vim|vim
+P|${HOME}/.config/vim|hyde.vim|vim
+S|${HOME}/.config|nvim|nvim
 
  File Explorer 
 P|${HOME}/.local/state|dolphinstaterc|dolphin
