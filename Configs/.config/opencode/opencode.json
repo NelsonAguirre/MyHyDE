@@ -1,5 +1,237 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["opencode-snippets", "@ex-machina/opencode-anthropic-auth"]
+  "default_agent": "gentleman",
+  "plugin": [
+    "opencode-snippets",
+    "@ex-machina/opencode-anthropic-auth",
+    "/home/nelson/Documents/repos/oc-convodump"
+  ],
+  "agent": {
+    "Luhmann": {
+      "mode": "all",
+      "prompt": "{file:~/.agents/Agente-Luhmann/Agente-Luhmann.md}",
+      "permission": {
+        "external_directory": {
+          "~/MyZettelkasten/**": "deny",
+          "~/MyZettelkasten/03-Areas/**": "allow",
+          "~/.agents/Agente-Luhmann/": "allow"
+        },
+        "task": {
+          "sdd-*": "deny",
+          "Luhmann": "allow"
+        }
+      }
+    },
+    "gentleman": {
+      "description": "Senior Architect mentor - helpful first, challenging when it matters",
+      "mode": "primary",
+      "prompt": "{file:~/.config/onyx-flow/gentleman.md}",
+      "tools": {
+        "edit": true,
+        "write": true
+      },
+      "permission": {
+        "task": {
+          "sdd-*": "deny"
+        }
+      }
+    },
+    "sdd-orchestrator": {
+      "description": "Agent Teams Orchestrator - coordinates sub-agents, never does work inline",
+      "mode": "primary",
+      "permission": {
+        "task": {
+          "*": "deny",
+          "sdd-*": "allow"
+        },
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/_shared/**": "allow"
+        }
+      },
+      "prompt": "{file:~/.config/onyx-flow/gentleman.md}{file:~/.config/onyx-flow/orchestrator.md}",
+      "tools": {
+        "bash": true,
+        "delegate": true,
+        "delegation_list": true,
+        "delegation_read": true,
+        "edit": true,
+        "read": true,
+        "write": true
+      }
+    },
+    "sdd-apply": {
+      "description": "Implement code changes from task definitions",
+      "hidden": true,
+      "mode": "subagent",
+      "prompt": "{file:~/.config/onyx-flow/sdd-apply/context.md}",
+      "tools": {
+        "bash": true,
+        "edit": true,
+        "read": true,
+        "write": true
+      },
+      "permission": {
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/**": "deny",
+          "~/.config/onyx-flow/_shared/**": "allow",
+          "~/.config/onyx-flow/sdd-apply/**": "allow"
+        }
+      }
+    },
+    "sdd-archive": {
+      "description": "Archive completed change artifacts",
+      "hidden": true,
+      "mode": "subagent",
+      "prompt": "{file:~/.config/onyx-flow/sdd-archive/context.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "read": true,
+        "write": false
+      },
+      "permission": {
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/**": "deny",
+          "~/.config/onyx-flow/_shared/**": "allow"
+        }
+      }
+    },
+    "sdd-design": {
+      "description": "Create technical design from proposals",
+      "hidden": true,
+      "mode": "subagent",
+      "prompt": "{file:~/.config/onyx-flow/sdd-design/context.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "read": true,
+        "write": false
+      },
+      "permission": {
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/**": "deny",
+          "~/.config/onyx-flow/_shared/**": "allow"
+        }
+      }
+    },
+    "sdd-explore": {
+      "description": "Investigate codebase and think through ideas",
+      "hidden": true,
+      "mode": "subagent",
+      "prompt": "{file:~/.config/onyx-flow/sdd-explore/context.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "read": true,
+        "write": false
+      },
+      "permission": {
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/**": "deny",
+          "~/.config/onyx-flow/_shared/**": "allow"
+        }
+      }
+    },
+    "sdd-init": {
+      "description": "Bootstrap SDD context and project configuration",
+      "hidden": true,
+      "mode": "subagent",
+      "prompt": "{file:~/.config/onyx-flow/sdd-init/context.md}",
+      "tools": {
+        "bash": true,
+        "edit": true,
+        "read": true,
+        "write": true
+      },
+      "permission": {
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/**": "deny",
+          "~/.config/onyx-flow/_shared/**": "allow"
+        }
+      }
+    },
+    "sdd-propose": {
+      "description": "Create change proposals from explorations",
+      "hidden": true,
+      "mode": "subagent",
+      "prompt": "{file:~/.config/onyx-flow/sdd-propose/context.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "read": true,
+        "write": false
+      },
+      "permission": {
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/**": "deny",
+          "~/.config/onyx-flow/_shared/**": "allow"
+        }
+      }
+    },
+    "sdd-spec": {
+      "description": "Write detailed specifications from proposals",
+      "hidden": true,
+      "mode": "subagent",
+      "prompt": "{file:~/.config/onyx-flow/sdd-spec/context.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "read": true,
+        "write": false
+      },
+      "permission": {
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/**": "deny",
+          "~/.config/onyx-flow/_shared/**": "allow"
+        }
+      }
+    },
+    "sdd-tasks": {
+      "description": "Break down specs and designs into implementation tasks",
+      "hidden": true,
+      "mode": "subagent",
+      "prompt": "{file:~/.config/onyx-flow/sdd-tasks/context.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "read": true,
+        "write": false
+      },
+      "permission": {
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/**": "deny",
+          "~/.config/onyx-flow/_shared/**": "allow"
+        }
+      }
+    },
+    "sdd-verify": {
+      "description": "Validate implementation against specs",
+      "hidden": true,
+      "mode": "subagent",
+      "prompt": "{file:~/.config/onyx-flow/sdd-verify/context.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "read": true,
+        "write": false
+      },
+      "permission": {
+        "external_directory": {
+          "~/.onyx/**": "deny",
+          "~/.config/onyx-flow/**": "allow",
+          "~/.config/onyx-flow/_shared/**": "allow",
+          "~/.config/onyx-flow/sdd-verify/**": "allow"
+        }
+      }
+    }
+  }
 }
-
