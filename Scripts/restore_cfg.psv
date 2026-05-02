@@ -157,3 +157,12 @@ O|${HOME}/.config|mpv|mpv
 O|${HOME}/.config|sioyek|sioyek
 O|${HOME}/.config|yt-dlp|yt-dlp
 O|${HOME}/.config|yt-x|yt-x
+
+⬚ GnuPG ⬚
+P|${HOME}/.gnupg|gpg.conf gpg-agent.conf|gnupg
+
+⬚ SSH ⬚
+P|${HOME}/.ssh|config|openssh
+
+⬚ w3m ⬚
+P|${HOME}/.w3m|keymap config|w3m
