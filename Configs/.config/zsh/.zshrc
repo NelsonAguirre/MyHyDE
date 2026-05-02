@@ -37,7 +37,7 @@
 
 #  This is your file 
 # Add your configurations here
-EDITOR=nvim
+export EDITOR=nvim
 
 # unset -f command_not_found_handler # Uncomment to prevent searching for commands not found in package manager
 
